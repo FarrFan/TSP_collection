@@ -42,7 +42,7 @@ class PSO(object):
             # 所有起始点都已经生成了
             if start_index >= num_city:
                 start_index = np.random.randint(0, num_city)
-                result.append(result[start_index].copy())
+                result.append(result[start_index].copy()) 
                 continue
             current = start_index
             rest.remove(current)
@@ -74,15 +74,15 @@ class PSO(object):
 
     # 计算不同城市之间的距离
     def compute_dis_mat(self, num_city, location):
-        dis_mat = np.zeros((num_city, num_city))
+        dis_mat = np.zeros((num_city, num_city))# 初始化距离矩阵
         for i in range(num_city):
             for j in range(num_city):
                 if i == j:
-                    dis_mat[i][j] = np.inf
+                    dis_mat[i][j] = np.inf# 两个城市相同，距离为无穷大
                     continue
                 a = location[i]
                 b = location[j]
-                tmp = np.sqrt(sum([(x[0] - x[1]) ** 2 for x in zip(a, b)]))
+                tmp = np.sqrt(sum([(x[0] - x[1]) ** 2 for x in zip(a, b)]))# 计算两个城市之间的距离
                 dis_mat[i][j] = tmp
         return dis_mat
 

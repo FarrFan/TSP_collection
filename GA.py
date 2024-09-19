@@ -270,10 +270,10 @@ if path_len < Best:
     Best = path_len
     Best_path = path
 # 加上一行因为会回到起点
-fig, axs = plt.subplots(2, 1, sharex=False, sharey=False)
-axs[0].scatter(Best_path[:, 0], Best_path[:,1])
-Best_path = np.vstack([Best_path, Best_path[0]])
-axs[0].plot(Best_path[:, 0], Best_path[:, 1])
+fig, axs = plt.subplots(2, 1, sharex=False, sharey=False)# 画布
+axs[0].scatter(Best_path[:, 0], Best_path[:,1])# 画出点
+Best_path = np.vstack([Best_path, Best_path[0]])# 闭合路径
+axs[0].plot(Best_path[:, 0], Best_path[:, 1]) # 画出路径
 axs[0].set_title('规划结果')
 iterations = range(model.iteration)
 best_record = model.best_record
